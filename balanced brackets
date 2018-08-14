@@ -1,0 +1,35 @@
+def isBalanced(s):
+    #Convert string to list
+    listS = list(s)
+    #Loop until reach an empty list
+    while len(listS) != 0:
+        #Compare pairwise the list values
+        for i in range(len(listS) - 1):
+            IndexLeft = i
+            IndexRight = i + 1
+            # Check if both values are equal
+            #If True pop those values out
+            if listS[IndexLeft] == "(" and listS[IndexRight] == ')':
+                listS.pop(IndexRight)
+                listS.pop(IndexLeft)
+                #break out the loop to start again
+                break
+
+            elif listS[IndexLeft] == "[" and listS[IndexRight] == ']':
+                listS.pop(IndexRight)
+                listS.pop(IndexLeft)
+                break
+
+            elif listS[IndexLeft] == "{" and listS[IndexRight] == '}':
+                listS.pop(IndexRight)
+                listS.pop(IndexLeft)
+                break
+            #Condition to detect the case when there are no pars on the list
+            if i +1 == len(listS)-1:
+                return 'NO'
+            
+    return 'YES'
+    
+   arr = '{[(])}'
+ 
+   isbalanced(arr)
